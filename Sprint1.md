@@ -19,6 +19,18 @@ As a rider, I can see the drivers’ overall rating by clicking one of the liste
 
 # What issues your team planned to address
 
+The front-end team plans to set up a homepage without a database for now, trying to design some elements and templates for pages on figma. Also, the react app should have the ability to call external API.
+
+The back-end team
+
 # Which ones were successfully completed
 
+The front-end team successfully designed and refined the form of the web application, built a react app template and tried to call external API such as Mapbox (not yet used in actual web pages).
+
+The back-end team
+
 # Which ones didn't and why?
+
+The front-end team did not organically combine all the elements needed in a web page because our team lacked experience with React, Node, and had weak CSS design skills. In addition, due to the inconsistency of the technology stack, the team spent a lot of time to work together and determine the final technology direction.
+
+The back-end team
