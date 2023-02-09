@@ -21,13 +21,13 @@ As a rider, I can see the drivers’ overall rating by clicking one of the liste
 
 The front-end team plans to set up a homepage without a database for now, trying to design some elements and templates for pages on figma. Also, the react app should have the ability to call external API.
 
-The back-end team
+The back-end team plans to build a database for users and be able to interact with the front end. The database content includes the driver's name, origin, destination, rating, etc. Passenger's name, time, origin, destination and other information.
 
 # Which ones were successfully completed
 
 The front-end team successfully designed and refined the form of the web application, built a react app template and tried to call external API such as Mapbox (not yet used in actual web pages).
 
-The back-end team
+The backend has now successfully established the golang framework and established four API interfaces. In addition, the backend successfully created a MySQL database table.
 
 # Which ones didn't and why?
 
