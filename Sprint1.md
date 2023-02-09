@@ -33,4 +33,4 @@ The backend has now successfully established the golang framework and establishe
 
 The front-end team did not organically combine all the elements needed in a web page because our team lacked experience with React, Node, and had weak CSS design skills. In addition, due to the inconsistency of the technology stack, the team spent a lot of time to work together and determine the final technology direction.
 
-The back-end team
+The backend does not have a detailed database. This is because we have just started learning Golang and MySQL and need more time to achieve these goals.
