@@ -1,9 +1,14 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-import DriverDetails from './components/DriverDetails';
+import Login from './components/Login';
+import Register from './components/Register';
+import Driver from './components/Driver';
+import DriverCreateCarpool from './components/DriverCreateCarpool';
+import SearchCarpool from './components/SearchCarpool';
+import Trip from './components/Trip';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import './components/DriverDetails.css';
+
 
 function App() {
   return (
@@ -12,19 +17,16 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' exact />
+          <Route path='/sign-up' element={<SignUp />} />
+          <Route path='/login' component={Login} />
+          <Route path='/register' component={Register} />
+          <Route path='/driver' component={Driver} />
+          <Route path='/create-carpool' component={DriverCreateCarpool} />
+          <Route path='/search-carpool' component={SearchCarpool} />
+          <Route path='/trip' component={Trip} />
+
         </Routes>
       </Router>
-      //driver details example
-      <div>
-        <DriverDetails
-          name="John Smith"
-          contact="555-1234"
-          profilePicture="https://zy-j.com/images/avatar.png"
-          departureTime="9:00am"
-          departureLocation="123 Main St, Anytown, USA"
-          destination="456 Oak Ave, Othertown, USA"
-        />
-      </div>
     </>
   );
 }
