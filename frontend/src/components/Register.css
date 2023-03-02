@@ -1,0 +1,61 @@
+.register-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register-container h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.register-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.register-container label {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.register-container input[type="text"],
+.register-container input[type="password"],
+.register-container input[type="tel"] {
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 300px;
+}
+
+.register-container button[type="submit"] {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: #0077b6;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.register-container button[type="submit"]:hover {
+    background-color: #023e8a;
+}
+
+.register-container p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+.register-container a {
+    color: #0077b6;
+}

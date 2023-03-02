@@ -1,0 +1,70 @@
+.driver {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.driver-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.driver-info img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.driver-info h2 {
+    font-size: 28px;
+    margin: 0;
+}
+
+.driver-info p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.driver-info button {
+    background-color: #2ecc71;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.driver-requests h2 {
+    font-size: 24px;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.driver-requests ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.driver-requests li {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.driver-requests button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+}

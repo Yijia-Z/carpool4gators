@@ -1,0 +1,55 @@
+.login {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.login h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login input[type="tel"],
+.login input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.login button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.login p {
+    text-align: center;
+}
+
+.login a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.login a:hover {
+    text-decoration: underline;
+}
