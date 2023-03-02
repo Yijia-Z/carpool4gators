@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import './HeroSection.css';
 
-class HeroSection extends Component {
-    render() {
-        return (
-            <div className='hero-container'>
-                <video src="/videos/video-2.mp4" autoPlay loop muted />
-                <h1></h1>
-                <p></p>
-                <div className='hero-btns'>
-                    <Button></Button>
-                </div>
-            </div>
-        );
-    }
+function HeroSection() {
+    return (
+        <div className='hero-container'>
+            <Link to='/drivers-list'>
+                Drivers List
+            </Link>
+        </div>
+    );
 }
 
 export default HeroSection;
