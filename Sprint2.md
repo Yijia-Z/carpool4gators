@@ -69,4 +69,5 @@ The cypress test code covers the following scenarios:
 The unit tests covers the Navbar & SignUp component
 
 Detail work you've completed in Sprint 2
-- Zhuoer Wang: Write part of backend test api and test backend
+- Zhuoer Wang: Write driver APIs and part of backend test api and test backend
+- Zhuote Chen: Write part of backend test api and test backend, write user APIs
