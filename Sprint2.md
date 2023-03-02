@@ -67,3 +67,6 @@ The cypress test code covers the following scenarios:
 -  request to join button click event is correctly handled.
 
 The unit tests covers the Navbar & SignUp component
+
+Detail work you've completed in Sprint 2
+- Zhuoer Wang: Write part of backend test api and test backend
