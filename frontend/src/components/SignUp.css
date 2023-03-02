@@ -1,0 +1,39 @@
+.signup-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* 100% in the middle */
+    background: linear-gradient(
+      rgba(255, 145, 1, 0.5),
+      rgba(34, 80, 231, 0.3)
+    ),
+    url("https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/299797677_428943762599749_6848884713497688837_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=XvZCQlgUke4AX_6_X1s&_nc_ht=scontent-atl3-1.xx&oh=00_AfAMYniVUi5aB8zZxz6r3Jgn1My5dUEVQ3x5VpGeBBx7iQ&oe=6404B6B2");
+    background-size: cover;
+    background-position: center;
+}
+
+form{
+    background-color: rgb(255, 255, 255, 1);
+    padding: 0px 60px;
+    border-radius: 10px;
+}
+
+h1{
+    color: rgb(77, 1, 77);
+    text-align: center;
+}
+
+button{
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    border: none;
+    background-color: rgb(73, 45, 255);
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
