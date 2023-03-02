@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTruckFast, faTimes, faBars} from '@fortawesome/free-solid-svg-icons';
 import { Button } from './Button.js';
@@ -13,18 +13,22 @@ function Navbar()
     
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
+    const location = useLocation();
 
     const showButton = () => {
+        if (location.pathname === '/sign-up') {
+            setButton(false);
+        }
         if(window.innerWidth <= 960) {
-            setButton(false)
+            setButton(false);
         } else{
             setButton(true);
         }
     };
 
     useEffect(() =>{
-        showButton()
-    },[])
+        showButton();
+    },[location.pathname]);
 
     window.addEventListener('resize', showButton);
 
@@ -32,7 +36,7 @@ function Navbar()
         <>
             <nav className="navbar">
                 <div className="navbar-container">
-                    <Link to="/" className="navbar-logo">
+                    <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
                         Carpool4Gator &nbsp; <FontAwesomeIcon icon={faTruckFast} />
                         {/*&nbsp works as space*/}
                     </Link>
