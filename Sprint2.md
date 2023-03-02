@@ -58,6 +58,8 @@ Haoyuan Xu:
 - A registration interface that can check if the input is legitimate
 - A navigation bar that can jump to different URLs
 - Homepage
+- The unit tests covers the Navbar & SignUp component
+
 
 Yijia Zhao:
 - Another pair of login/registration interfaces that jump to each other
@@ -65,13 +67,12 @@ Yijia Zhao:
 - Search carpool page
 - Create carpool page
 - Trip information page with passenger confirmation/cancellation and rating of the driver
-A cypress test code covers the following scenarios:
--  driver information is correctly displayed.
--  request to join section is correctly displayed.
--  edit information button click event is correctly handled.
--  request to join button click event is correctly handled.
+- A cypress test code covers the following scenarios:
 
-The unit tests covers the Navbar & SignUp component
+  driver information is correctly displayed.
+  request to join section is correctly displayed.
+  edit information button click event is correctly handled.
+  request to join button click event is correctly handled.
 
 Detail work you've completed in Sprint 2
 - Zhuoer Wang: Write driver APIs and part of backend test api and test backend
