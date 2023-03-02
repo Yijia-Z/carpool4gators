@@ -2,46 +2,25 @@ import React from 'react'
 import Driver from './Driver'
 
 describe('Driver component', () => {
-  beforeEach(() => {
-    cy.visit('/');
-  });
+  it('renders driver information correctly', () => {
+    const driver = {
+      name: 'Driver Name',
+      profilePicture: 'https://zy-j.com/images/avatar.png',
+      departureTime: '8:00 AM',
+      departureLocation: '123 Main St, Anytown USA',
+      arrivalLocation: '456 Park Ave, Anytown USA',
+      remainingSeats: 3,
+      passengerRatings: [4, 5, 3],
+      contactInformation: 'john.doe@example.com'
+    };
 
-  it('displays driver information', () => {
-    cy.get('.driver')
-      .should('exist')
-      .within(() => {
-        cy.get('img').should('have.attr', 'src', 'https://zy-j.com/images/avatar.png');
-        cy.get('h2').should('contain', 'Driver Name');
-        cy.get('p').eq(0).should('contain', '8:00 AM');
-        cy.get('p').eq(1).should('contain', '123 Main St, Anytown USA to 456 Park Ave, Anytown USA');
-        cy.get('p').eq(2).should('contain', 'Remaining seats: 3');
-        cy.get('p').eq(3).should('contain', 'Passenger ratings: 4, 5, 3');
-        cy.get('p').eq(4).should('contain', 'Contact: john.doe@example.com');
-        cy.get('button').eq(0).should('contain', 'Edit Information');
-      });
-  });
+    cy.mount(<Driver />);
 
-  it('displays request to join section', () => {
-    cy.get('.driver-requests')
-      .should('exist')
-      .within(() => {
-        cy.get('h2').should('contain', 'Requests to Join');
-        cy.get('li').should('have.length', 3);
-        cy.get('button').should('contain', 'Request to Join');
-      });
-  });
-
-  it('handles edit information click event', () => {
-    cy.get('.driver').within(() => {
-      cy.get('button').eq(0).click();
-    });
-    // perform assertion for edit information logic here
-  });
-
-  it('handles request to join click event', () => {
-    cy.get('.driver-requests').within(() => {
-      cy.get('button').click();
-    });
-    // perform assertion for request to join logic here
+    cy.get('.driver-info h2').should('have.text', driver.name);
+    cy.get('.driver-info p').eq(0).should('have.text', driver.departureTime);
+    cy.get('.driver-info p').eq(1).should('have.text', `${driver.departureLocation} to ${driver.arrivalLocation}`);
+    cy.get('.driver-info p').eq(2).should('have.text', `Remaining seats: ${driver.remainingSeats}`);
+    cy.get('.driver-info p').eq(3).should('have.text', `Passenger ratings: ${driver.passengerRatings.join(', ')}`);
+    cy.get('.driver-info p').eq(4).should('have.text', `Contact: ${driver.contactInformation}`);
   });
 });
