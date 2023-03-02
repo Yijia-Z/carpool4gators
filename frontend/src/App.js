@@ -14,6 +14,9 @@ import './components/DriverDetails.css';
 import HeroSection from './components/HeroSection';
 
 
+
+
+
 function App() {
 
   //const [showNavbar, setShowNavbar] = useState(true);
@@ -24,28 +27,27 @@ function App() {
     <>
       <Router>
         <Navbar />
-        <Driver />
-        <DriverCreateCarpool />
-        <LogIn />
-        <Register />
-        <SearchCarpool />
-        <Trip />
         <Routes>
-          <Route path='/' exact />
+          <Route path='/' element={<HeroSection />} />
           <Route path='/sign-up' element={<SignUp />}/>
+          <Route path='/drivers-list' element={
+            <DriverDetails
+            name="John Smith"
+            contact="555-1234"
+            profilePicture="https://zy-j.com/images/avatar.png"
+            departureTime="9:00am"
+            departureLocation="123 Main St, Anytown, USA"
+            destination="456 Oak Ave, Othertown, USA"
+          />
+          }/>
+          <Route path='/driver' element={<Driver />} />
+          <Route path='/create-carpool' element={<DriverCreateCarpool />} />
+          <Route path='/login' element={<LogIn />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/search' element={<SearchCarpool />} />
+          <Route path='/trip' element={<Trip />} />
         </Routes>
       </Router>
-      //driver details example
-      <div>
-        <DriverDetails
-          name="John Smith"
-          contact="555-1234"
-          profilePicture="https://zy-j.com/images/avatar.png"
-          departureTime="9:00am"
-          departureLocation="123 Main St, Anytown, USA"
-          destination="456 Oak Ave, Othertown, USA"
-        />
-      </div>
     </>
   );
 }
