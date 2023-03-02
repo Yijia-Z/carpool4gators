@@ -1,4 +1,4 @@
-Link to our Demo Vidoe:
+Link to our demo video:
 https://youtu.be/TMGEF5ex6-Y
 
 
@@ -55,11 +55,11 @@ TestDeleteBooking1()
 
 The front end accomplishes the following:
 Haoyuan Xu:
-- A cloud server that can be accessed publicly http://44.202.75.134:3000/
 - A registration interface that can check if the input is legitimate
 - A navigation bar that can jump to different URLs
 - Homepage
-- The unit tests covers the Navbar & SignUp component
+- Navbar component unit test
+- SignUp component unit test
 
 
 Yijia Zhao:
@@ -68,11 +68,14 @@ Yijia Zhao:
 - Search carpool page
 - Create carpool page
 - Trip information page with passenger confirmation/cancellation and rating of the driver
-- A cypress test code covers the following scenarios:
+- A cypress test code covers the following scenarios in Driver.js:
 
   driver information is correctly displayed.
+  
   request to join section is correctly displayed.
+  
   edit information button click event is correctly handled.
+  
   request to join button click event is correctly handled.
 
 Detail work you've completed in Sprint 2
