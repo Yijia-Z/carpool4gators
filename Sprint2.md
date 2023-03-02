@@ -50,17 +50,18 @@ TestDeleteBooking1()
 ```
 
 The front end accomplishes the following:
-
-- A set of login/registration interfaces that jump to each other
-- Another registration interface that can check if the input is legitimate
+Haoyuan Xu:
+- A registration interface that can check if the input is legitimate
 - A navigation bar that can jump to different URLs
+- Homepage
+
+Yijia Zhao:
+- Another pair of login/registration interfaces that jump to each other
 - Two driver pages of different complexity, one contains an edit button and a request to join button
 - Search carpool page
 - Create carpool page
 - Trip information page with passenger confirmation/cancellation and rating of the driver
-
-The cypress test code covers the following scenarios:
-
+A cypress test code covers the following scenarios:
 -  driver information is correctly displayed.
 -  request to join section is correctly displayed.
 -  edit information button click event is correctly handled.
@@ -69,5 +70,4 @@ The cypress test code covers the following scenarios:
 The unit tests covers the Navbar & SignUp component
 
 Detail work you've completed in Sprint 2
-- Zhuoer Wang: Write driver APIs and part of backend test api and test backend
-- Zhuote Chen: Write part of backend test api and test backend, write user APIs
+- Zhuoer Wang: Write part of backend test api and test backend
