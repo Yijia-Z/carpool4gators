@@ -55,6 +55,7 @@ TestDeleteBooking1()
 
 The front end accomplishes the following:
 Haoyuan Xu:
+- A cloud server that can be accessed publicly http://44.202.75.134:3000/
 - A registration interface that can check if the input is legitimate
 - A navigation bar that can jump to different URLs
 - Homepage
