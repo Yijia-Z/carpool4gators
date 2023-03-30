@@ -1,5 +1,3 @@
-Youtube Link: https://youtu.be/bJ4zDyyPpfQ
-
 #### Backend APIs
 
 1.1 User register
@@ -373,8 +371,8 @@ We implemented some new functionalities and wrote unit tests for them.
 - Driver login
 - User login
 - User register
-- Sign UP
-- Log In
+- Sign Up verification
+- Log In verification
 
 ### Front End unit tests
 
@@ -387,4 +385,8 @@ We implemented some new functionalities and wrote unit tests for them.
 - UserLogin.cy.js
 - UserRegister.cy.js
 
-
+#### New Functionality
+- Synchronization with back-end api and removal of unnecessary functions
+- Component design consistency
+- cypress validation of rendering components and api call/write functionality
+- axios implementation
