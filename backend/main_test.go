@@ -396,3 +396,95 @@ func TestDriverUpdateApi1(t *testing.T) {
 	}
 
 }
+
+func TestGetDriverApi(t *testing.T) {
+	g := gin.Default()
+	router.InitRouter(g)
+
+	req, err := http.NewRequest("GET", "/api/driver/373954758", nil)
+	if err != nil {
+		t.Fatalf("new request fail, err: %v", err)
+	}
+
+	rec := httptest.NewRecorder()
+
+	g.ServeHTTP(rec, req)
+
+	result := rec.Result()
+	t.Logf("response code: %v", result.StatusCode)
+	t.Logf("response str: %s ", rec.Body.String())
+
+	if result.StatusCode != 200 {
+		t.Fatalf("resp code error.")
+	}
+
+}
+
+func TestGetDriverApi1(t *testing.T) {
+	g := gin.Default()
+	router.InitRouter(g)
+
+	req, err := http.NewRequest("GET", "/api/driver/123", nil)
+	if err != nil {
+		t.Fatalf("new request fail, err: %v", err)
+	}
+
+	rec := httptest.NewRecorder()
+
+	g.ServeHTTP(rec, req)
+
+	result := rec.Result()
+	t.Logf("response code: %v", result.StatusCode)
+	t.Logf("response str: %s ", rec.Body.String())
+
+	if rec.Body.String() != `{"code":10009,"message":"操作失败","data":"用户不存在"}` {
+		t.Fatalf("response not expected")
+	}
+}
+
+func TestGetDriverRatingsApi(t *testing.T) {
+	g := gin.Default()
+	router.InitRouter(g)
+
+	req, err := http.NewRequest("GET", "/api/driver/373954758/ratings", nil)
+	if err != nil {
+		t.Fatalf("new request fail, err: %v", err)
+	}
+
+	rec := httptest.NewRecorder()
+
+	g.ServeHTTP(rec, req)
+
+	result := rec.Result()
+	t.Logf("response code: %v", result.StatusCode)
+	t.Logf("response str: %s ", rec.Body.String())
+
+	if result.StatusCode != 200 {
+		t.Fatalf("resp code error.")
+	}
+
+}
+
+func TestGetDriverRatingsApi1(t *testing.T) {
+	g := gin.Default()
+	router.InitRouter(g)
+
+	req, err := http.NewRequest("GET", "/api/driver/123/ratings", nil)
+	if err != nil {
+		t.Fatalf("new request fail, err: %v", err)
+	}
+
+	rec := httptest.NewRecorder()
+
+	g.ServeHTTP(rec, req)
+
+	result := rec.Result()
+	t.Logf("response code: %v", result.StatusCode)
+	t.Logf("response str: %s ", rec.Body.String())
+
+	if rec.Body.String() != `{"code":0,"message":"OK","data":[]}` {
+		t.Fatalf("response not expected")
+	}
+
+}
+
