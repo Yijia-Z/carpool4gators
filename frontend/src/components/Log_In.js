@@ -50,7 +50,7 @@ function Log_In() {
             
             try {
 
-                let res = await fetch ('./log-in', {
+                let res = await fetch ('/api/user/login', {
                     method: 'post',
                     headers: {
                         'Accept': 'application/json',
@@ -131,7 +131,7 @@ function Log_In() {
                             <SubmitButton
                                 text={'Login'}
                                 disable={false}
-                                onClick={ () => this.doLogIn() }
+                                onClick={ doLogIn() }
                             />
                             <p className="login-text">
                                 Don't have an account? <Link to='/sign-up'>SignUp</Link>

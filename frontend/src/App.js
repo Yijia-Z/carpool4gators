@@ -15,6 +15,8 @@ import './App.css';
 import './components/DriverDetails.css';
 import HeroSection from './components/HeroSection';
 import UserStore from './stores/UserStore';
+import SearchTrips from './components/new/SearchTrips';
+import ConfirmTrip from './components/new/ConfirmTrip';
 
 
 
@@ -88,6 +90,7 @@ function App() {
         <Router>
           <Navbar />
           <Routes>
+            <Route path='search-trip' element={<SearchTrips/>}/>
             <Route path='/' element={<HeroSection />} />
             <Route path='/sign-up' element={<SignUp isLoggedIn={isLoggedIn}/>}/>
             <Route path='/log-in' element={<Log_In />}/>
