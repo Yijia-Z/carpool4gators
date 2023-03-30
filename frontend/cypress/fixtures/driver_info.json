@@ -1,0 +1,8 @@
+{
+    "code": 0,
+    "driver_id": 1,
+    "username": "driver1",
+    "email": "driver1@example.com",
+    "phone": "1234567890",
+    "rating": 4.5
+}
