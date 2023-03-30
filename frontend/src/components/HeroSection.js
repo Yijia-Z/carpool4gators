@@ -41,6 +41,11 @@ function HeroSection() {
                         trip
                     </Link>
                 </li>
+                <li>
+                    <Link to='/search-trip'>
+                        search
+                    </Link>
+                </li>
             </ul>
         </div>
     );
