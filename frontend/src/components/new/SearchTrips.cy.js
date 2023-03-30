@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'cypress/react';
+import { mount } from 'cypress/react18';
 import axios from 'axios';
 import SearchTrips from './SearchTrips';
 
