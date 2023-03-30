@@ -350,6 +350,7 @@ TestGetDriverRatingsApi1()
 ```
 
 #### New Functionality
+We implemented some new functionalities and wrote unit tests for them.
 1. Driver registration and login feature: Drivers can register a new account or login with an existing account.
 2. Driver information management: Drivers can manage their personal information, rating, and current trips.
 3. Trip management: Users can search for trips based on the departure location, destination, time, and available seats. Drivers can create trips with departure location, destination, time, available seats, and contact information. Once matched, users can request to join a driver's trip.
