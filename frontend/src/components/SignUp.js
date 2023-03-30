@@ -1,6 +1,9 @@
 import React, { useRef, useState} from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import FormInput from './FormInput';
 import './SignUp.css';
+import UserStore from '../stores/UserStore';
+import SubmitButton from './SubmitButton';
 
 function SignUp() {
         const [values, setValues] = useState({
@@ -71,24 +74,62 @@ function SignUp() {
 
         console.log(values);
 
-        return (
-            <div className='signup-container'>
-                <form onSubmit={handleSubmit}>
-                    <h1>Register</h1>
-                    {
-                        inputs.map((input) => (
-                            <FormInput 
-                                key={input.id} 
-                                {...input} 
-                                value={values[input.name]} 
-                                onChange={onChange} 
-                            />
-                        ))
-                    }
-                    <button>Submit</button>
-                </form>
-            </div>
-        );
+        if (UserStore.loading) {
+            return (
+              <div className="app">
+                <div className="container">
+                  Loading, please wait..
+                </div>
+              </div>
+            )
+          }
+        
+          else {
+        
+              if (UserStore.isLoggedIn) {
+                return (
+                  <div className="app">
+                    <div className="container">
+                      Welcome {UserStore.username}
+        
+                      <SubmitButton
+                        text={'Log out'}
+                        disable={false}
+                        onClick={ () => this.doLogOut() }
+                      />
+        
+                    </div>
+                </div>
+                )
+              }
+
+              return (
+                <div className='signup-container'>
+                    <div className='form-wrapper'>
+                        <form onSubmit={handleSubmit}>
+                            <h1>Register</h1>
+                            {
+                                inputs.map((input) => (
+                                    <FormInput 
+                                        key={input.id} 
+                                        {...input} 
+                                        value={values[input.name]} 
+                                        onChange={onChange} 
+                                    />
+                                ))
+                            }
+                            <button>Submit</button>
+                            <p className="login-text">
+                                Already have an account? <Link to='/log-in'>Log In</Link>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            );
+        }
+
     }
+
+        
 
 export default SignUp;
