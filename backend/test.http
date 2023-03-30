@@ -1,0 +1,37 @@
+# POST http://localhost:18080/api/user/add_user HTTP/1.1
+
+# {"name":"mike","phone":"3233","password":"123"}
+
+
+# POST http://localhost:18080/user/login HTTP/1.1
+
+# {"phone":"323","password":"123"}
+
+
+# POST http://localhost:18080/api/driver/register
+
+# {
+#     "username":"hxt",
+#     "password":"123456",
+#     "email":"kkhxt@foxmail.com",
+#     "phone":"15669481029"
+# }
+
+# POST http://localhost:18080/api/driver/login
+
+# {
+#     "phone":"156694810289",
+#     "password":"123456"
+# }
+
+# GET http://localhost:18080/api/driver/373954758 HTTP/1.1
+
+# PUT http://localhost:18080/api/driver/373954758 HTTP/1.1
+
+# {
+#     "driver_id":373954758,
+#     "username":"john"
+# }
+
+
+GET http://localhost:18080/api/driver/373954758/ratings HTTP/1.1
