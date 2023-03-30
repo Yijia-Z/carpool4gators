@@ -350,25 +350,28 @@ TestGetDriverRatingsApi1()
 ```
 
 ### Front End Progress
-**old components are rewritten to communicate with back end using axios**
-    search trip
-    confirm trip
-    create trip
-    driver info
-    driver login
-    user login
-    user register
-    Sign UP
-    Log In
+
+**Old components are rewritten to communicate with back end using axios:**
+
+- Search trip
+- Confirm trip
+- Create trip
+- Driver info
+- Driver login
+- User login
+- User register
+- Sign UP
+- Log In
 
 ### Front End unit tests
-ConfirmTrip.cy.js
-CreateTrip.cy.js
-SearchTrips.cy.js
-DriverInfo.cy.js
-DriverRegister.cy.js
-SearchTrips.js
-UserLogin.cy.js
-UserRegister.cy.js
+
+- ConfirmTrip.cy.js
+- CreateTrip.cy.js
+- SearchTrips.cy.js
+- DriverInfo.cy.js
+- DriverRegister.cy.js
+- SearchTrips.js
+- UserLogin.cy.js
+- UserRegister.cy.js
 
 
