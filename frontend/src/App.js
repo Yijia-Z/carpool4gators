@@ -17,6 +17,11 @@ import HeroSection from './components/HeroSection';
 import UserStore from './stores/UserStore';
 import SearchTrips from './components/new/SearchTrips';
 import ConfirmTrip from './components/new/ConfirmTrip';
+import CreateTrip from './components/new/CreateTrip';
+import DriverInfo from './components/new/DriverInfo';
+import DriverLogin from './components/new/DriverLogin';
+import UserLogin from './components/new/UserLogin';
+import UserRegister from './components/new/UserRegister';
 
 
 
@@ -91,6 +96,12 @@ function App() {
           <Navbar />
           <Routes>
             <Route path='search-trip' element={<SearchTrips/>}/>
+            <Route path='confirm-trip' element={<ConfirmTrip/>}/>
+            <Route path='create-trip' element={<CreateTrip/>}/>
+            <Route path='driver-info' element={<DriverInfo/>}/>
+            <Route path='driver-login' element={<DriverLogin/>}/>
+            <Route path='user-login' element={<UserLogin/>}/>
+            <Route path='user-register' element={<UserRegister/>}/>
             <Route path='/' element={<HeroSection />} />
             <Route path='/sign-up' element={<SignUp isLoggedIn={isLoggedIn}/>}/>
             <Route path='/log-in' element={<Log_In />}/>
