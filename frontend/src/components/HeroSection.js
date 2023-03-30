@@ -6,6 +6,9 @@ function HeroSection() {
     return (
         <div className='hero-container'>
             <ul className="temp-nav">
+                <h1>
+                    old stuff
+                </h1>
                 <li>
                     <Link to='/drivers-list'>
                         Drivers List
@@ -41,9 +44,42 @@ function HeroSection() {
                         trip
                     </Link>
                 </li>
+                <h1>
+                        new stuff
+                </h1>
                 <li>
                     <Link to='/search-trip'>
                         search
+                    </Link>
+                </li>
+                <li>
+                    <Link to='/confirm-trip'>
+                        confirm
+                    </Link>
+                </li>
+                <li>
+                    <Link to='/create-trip'>
+                        create
+                    </Link>
+                </li>
+                <li>
+                    <Link to='/driver-info'>
+                        driver info
+                    </Link>
+                </li>
+                <li>
+                    <Link to='/driver-login'>
+                        driver login
+                    </Link>
+                </li>
+                <li>
+                    <Link to='/user-login'>
+                        user login
+                    </Link>
+                </li>
+                <li>
+                    <Link to='/user-register'>
+                        user register
                     </Link>
                 </li>
             </ul>
