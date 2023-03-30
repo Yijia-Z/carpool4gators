@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "start": "StartCity",
+        "destination": "DestinationCity",
+        "date": "2023-04-15",
+        "available_seats": 3,
+        "price": 100
+    },
+    {
+        "id": 2,
+        "start": "StartCity",
+        "destination": "DestinationCity",
+        "date": "2023-04-15",
+        "available_seats": 2,
+        "price": 120
+    }
+]
