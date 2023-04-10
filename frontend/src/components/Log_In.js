@@ -50,7 +50,7 @@ function Log_In() {
             
             try {
 
-                let res = await fetch ('/api/user/login', {
+                let res = await fetch ('http://localhost:18080/user/login', {
                     method: 'post',
                     headers: {
                         'Accept': 'application/json',

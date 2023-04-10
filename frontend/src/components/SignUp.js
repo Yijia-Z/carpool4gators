@@ -79,7 +79,7 @@ function SignUp() {
             const { username, email, password } = values;
           
             try {
-              let res = await fetch('http://localhost:18080/api/user/add_user', {
+              let res = await fetch('http://localhost:18080/user/add_user', {
                 method: 'post',
                 mode: 'no-cors',
                 headers: {

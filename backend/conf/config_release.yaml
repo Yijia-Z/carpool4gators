@@ -6,4 +6,4 @@ mysql:
   name: car
   addr: 127.0.0.1:3306
   username: root
-  password: 575217
+  password: Alex7619
