@@ -1,30 +1,42 @@
-import React, { useRef, useState} from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useRef, useState, useEffect} from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import FormInput from './FormInput';
 import './SignUp.css';
 import UserStore from '../stores/UserStore';
 import SubmitButton from './SubmitButton';
+import Navbar from './Navbar';
+import { Nav } from 'react-bootstrap';
 
 function SignUp() {
         const [values, setValues] = useState({
-            username: "",
+            name: "",
             email: "",
             birthday: "",
+            phone: "",
             password: "",
             confirmPassword: ""
         });
 
+        const navigate = useNavigate();
+        useEffect(()=>{
+            if(localStorage.getItem('user-info'))
+            {
+                navigate('/search-trip')
+            }
+        },[])
+
         const inputs = [
             {
                 id:1,
-                name:"username",
+                name:"name",
                 type:"text",
-                placeholder:"Username",
-                //errorMessage: "Username should be 3-16 characters and shouldn't include any special character!",
-                label:"Username",
+                placeholder:"Full Name",
+                //errorMessage: "name should be 3-16 characters and shouldn't include any special character!",
+                label:"name",
                 //pattern: "^[A-Za-z0-9]{3,16}$",
                 required: true,
             },
+            /*
             {
                 id:2,
                 name:"email",
@@ -41,8 +53,16 @@ function SignUp() {
                 placeholder:"Birthday",
                 label:"Birthday"
             },
+            */
             {
-                id:4,
+              id: 4,
+              name:"phone",
+              type:"text",
+              placeholder:"phone number",
+              label:"Phone"
+            },
+            {
+                id:5,
                 name:"password",
                 type:"password",
                 placeholder:"Password",
@@ -52,7 +72,7 @@ function SignUp() {
                 required: true,
             },
             {
-                id:5,
+                id:6,
                 name:"confirmPassword",
                 type:"password",
                 placeholder:"ConfirmPassword",
@@ -76,47 +96,51 @@ function SignUp() {
         console.log(values);
 
         const doSignUp = async () => {
-            const { username, email, password } = values;
+          // right now the backend only takes name, password, and phone
+            const { name, password, phone} = values;
           
+            // post of JSON file
             try {
+              let item = {name, password, phone}
+              console.warn(item)
+
               let res = await fetch('http://localhost:18080/user/add_user', {
                 method: 'post',
-                mode: 'no-cors',
                 headers: {
                   'Accept': 'application/json',
                   'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({
-                  username,
-                  password,
-                  email,
-                  phone: '123456789',
-                }),
+                body: JSON.stringify(item),
               });
-          
+
               // Check if the response is ok (status code in the 200-299 range)
               if (!res.ok) {
-                throw new Error(`Network response was not ok: ${res.statusText}`);
+                throw new Error(`Network response was not ok: ${res.status} ${res.statusText}`);
               }
           
               let result = await res.json();
-              if (result && result.success) {
+              
+              
+              if (result) {
                 UserStore.isLoggedIn = true;
-                UserStore.username = result.username;
-              } else if (result && result.success === false) {
-                alert(result.msg);
-                setValues({
-                  username: '',
-                  password: '',
-                  email: '',
-                });
-              }
+                UserStore.name = result.name;
+                // store user information in localStorage on Web
+                localStorage.setItem('user-info',JSON.stringify({
+                  id: result.data.id,
+                  name: result.data.name,
+                  phone: result.data.phone,
+                  password: result.data.password
+                }));
+                navigate("/search-trip");
+              };
+              
+
             } catch (e) {
               console.log(e);
             }
           };
           
-
+/*
         if (UserStore.loading) {
             return (
               <div className="app">
@@ -133,7 +157,7 @@ function SignUp() {
                 return (
                   <div className="app">
                     <div className="container">
-                      Welcome {UserStore.username}
+                      Welcome {UserStore.name}
         
                       <SubmitButton
                         text={'Log out'}
@@ -145,37 +169,42 @@ function SignUp() {
                 </div>
                 )
               }
-
+*/
               return (
-                <div className='signup-container'>
-                    <div className='form-wrapper'>
-                        <form onSubmit={handleSubmit}>
-                            <h1>Register</h1>
-                            {
-                                inputs.map((input) => (
-                                    <FormInput 
-                                        key={input.id} 
-                                        {...input} 
-                                        value={values[input.name]} 
-                                        onChange={onChange} 
-                                    />
-                                ))
-                            }
-                            <SubmitButton
-                                text={'Submit'}
-                                disable={false}
-                                onClick={ doSignUp }
-                            />
-                            <p className="login-text">
-                                Already have an account? <Link to='/log-in'>Log In</Link>
-                            </p>
-                        </form>
-                    </div>
-                </div>
+                <>
+                  <Navbar />
+                  <div className='signup-container'>
+                      <div className='form-wrapper'>
+                          <form onSubmit={handleSubmit}>
+                              <h1>Register</h1>
+                              {
+                                  inputs.map((input) => (
+                                      <FormInput 
+                                          key={input.id} 
+                                          {...input} 
+                                          value={values[input.name]} 
+                                          onChange={onChange} 
+                                      />
+                                  ))
+                              }
+                              <SubmitButton
+                                  text={'Submit'}
+                                  disable={false}
+                                  onClick={ doSignUp }
+                              />
+                              <p className="login-text">
+                                  Already have an account? <Link to='/log-in'>Log In</Link>
+                              </p>
+                          </form>
+                      </div>
+                  </div>
+                </>
             );
-        }
+            
+ //      }
 
     }
+
 
         
 

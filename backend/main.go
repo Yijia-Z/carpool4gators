@@ -5,6 +5,7 @@ import (
 	"education/database"
 	"education/router"
 	"github.com/gin-gonic/gin"
+	"github.com/gin-contrib/cors"
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
 )
@@ -24,6 +25,7 @@ func init() {
 func main() {
 	g := gin.Default()
 	g.Use(gin.Logger(), gin.Recovery())
+	g.Use(cors.Default())
 	router.InitRouter(g)
 	g.Run(viper.GetString("addr"))
 }

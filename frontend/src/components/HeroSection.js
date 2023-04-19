@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './HeroSection.css';
+import Navbar from './Navbar';
+import { Nav } from 'react-bootstrap';
 
 function HeroSection() {
     return (
+        <>
+        <Navbar />
         <div className='hero-container'>
             <ul className="temp-nav">
                 <h1>
@@ -84,6 +88,7 @@ function HeroSection() {
                 </li>
             </ul>
         </div>
+        </>
     );
 }
 

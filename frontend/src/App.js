@@ -93,7 +93,7 @@ function App() {
     return (
       <>
         <Router>
-          <Navbar />
+          {/*<Navbar />*/}
           <Routes>
             <Route path='search-trip' element={<SearchTrips/>}/>
             <Route path='confirm-trip' element={<ConfirmTrip/>}/>

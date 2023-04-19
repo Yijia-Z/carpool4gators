@@ -6,10 +6,11 @@ import (
 	"education/database"
 	"education/model"
 	"education/util"
-	"github.com/gin-gonic/gin"
-	"gorm.io/gorm"
 	"log"
 	"time"
+
+	"github.com/gin-gonic/gin"
+	"gorm.io/gorm"
 )
 
 // 添加用户

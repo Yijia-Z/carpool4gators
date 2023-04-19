@@ -1,5 +1,6 @@
+import { Nav, NavDropdown, Dropdown, DropdownButton} from 'react-bootstrap';
 import React, {useState, useEffect} from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTruckFast, faTimes, faBars} from '@fortawesome/free-solid-svg-icons';
 import { Button } from './Button.js';
@@ -8,6 +9,10 @@ import './Navbar.css';
 
 function Navbar()
 {
+    // get user id after logged in
+    let user = JSON.parse(localStorage.getItem('user-info'))
+    console.warn(user)
+    const navigate = useNavigate();
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
     
@@ -31,6 +36,13 @@ function Navbar()
     },[location.pathname]);
 
     window.addEventListener('resize', showButton);
+
+
+    function LogOut()
+    {
+        localStorage.clear();
+        navigate("/sign-up");
+    }
 
     return (
         <>
@@ -59,13 +71,31 @@ function Navbar()
                                 Contact/Support
                             </Link>
                         </li>
-                        <li className='nav-item'>
-                            <Link to='/sign-up' className='nav-links-mobile' onClick={closeMobileMenu}>
-                                Sign-up
+                        {
+                            localStorage.getItem('user-info') ?
+                            <li className='nav-item'>
+                            <Link to='/sign-up' className='nav-links-mobile' onClick={closeMobileMenu && LogOut}>
+                                Log Out
                             </Link>
-                        </li>
+                            </li>
+                            :
+                            <li className='nav-item'>
+                            <Link to='/sign-up' className='nav-links-mobile' onClick={closeMobileMenu}>
+                                Sign up
+                            </Link>
+                            </li>
+                        }
                     </ul>
-                    {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
+                    {
+                        localStorage.getItem('user-info') ?
+                        <DropdownButton id="dropdown-basic-button" title={user.name}>
+                            <button>
+                                <Dropdown.Item href="#/action-1" onClick={LogOut}>Log Out</Dropdown.Item>
+                            </button> 
+                        </DropdownButton>
+                        :
+                        (button && <Button buttonStyle='btn--outline'>SIGN UP</Button>)
+                    }
                 </div>
             </nav>
         </>

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Navbar from '../Navbar';
+import { Nav } from 'react-bootstrap';
 
 const SearchTrips = () => {
     const [start, setStart] = useState('');
@@ -19,6 +21,8 @@ const SearchTrips = () => {
     };
 
     return (
+        <>
+        <Navbar/>
         <div>
             <form onSubmit={handleSubmit}>
                 <h2>Search Trips</h2>
@@ -56,6 +60,7 @@ const SearchTrips = () => {
                 ))}
             </ul>
         </div>
+        </>
     );
 };
 
