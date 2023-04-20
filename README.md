@@ -65,20 +65,42 @@ The file `build.sh` is used to automate the project's build process. It can perf
 The file `main.go` is an entry point for a Go program. It contains the main logic of the project and is responsible for starting the program, performing initialization and handling HTTP requests.
 
 To run this backend:
-1. Download Goland and install it
-2. Download MySQL (command line Client recommended) and install it (remember password), then configure environment variables
-3. In Windows, go to "Service" at search bar, find MYSQL, make sure it started. (Should start by default)
-4. Open backend project in Goland or VScode, execute "go mod tidy" command in terminal (remember to first change directory to backend files)
-5. Write your MySQL password into "/backend/conf/config_release.yaml" file (change password line to your MySQL password)
-6. Login to MySQL in command line, create a database named "car", execute SQL file
-7. To login, either open Commendline Client, or command prompt and type "mysql -u <username> -p" (user name is root by default)
-8. In commandline client:
-  source path/to/your/db.sql    ----  this is a table generation file 
-  USE education;
-  SHOW TABLES:         ------- makes sure you have four tables
-  RENAME DATABASE education TO car;
-  USE car;
-9. Click on green triangle to run program or in Terminal, "go run main.go".
+
+1.  Download Goland and install it
+2.  Download MySQL (command line Client recommended) and install it (remember password), then configure environment variables
+3.  In Windows, go to "Service" at search bar, find MYSQL, make sure it started. (Should start by default)
+4.  Open backend project in Goland or VScode, execute "go mod tidy" command in terminal (remember to first change directory to backend files)
+5.  Write your MySQL password into "/backend/conf/config\_release.yaml" file (change password line to your MySQL password)
+6.  Login to MySQL in command line, create a database named "car", execute SQL file
+7.  To login, either open Commendline Client, or command prompt and type:
+
+css
+
+```css
+mysql -u <username> -p
+```
+
+(user name is root by default)
+
+8.  In the command line client:
+
+lua
+
+```lua
+source path/to/your/db.sql    ----  this is a table generation file 
+USE education;
+SHOW TABLES:         ------- makes sure you have four tables
+RENAME DATABASE education TO car;
+USE car;
+```
+
+9.  Click on the green triangle to run the program or in the Terminal, run:
+
+go
+
+```go
+go run main.go
+```
 
 To test this backend using Postman:
 1. Download Postman
