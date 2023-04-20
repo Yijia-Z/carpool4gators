@@ -488,3 +488,272 @@ func TestGetDriverRatingsApi1(t *testing.T) {
 
 }
 
+var trip_id int64
+
+func TestTripCreate(t *testing.T) {
+	g := gin.Default()
+	router.InitRouter(g)
+	data := `{
+		"driver_id":373954758,
+		"start":"A place",
+		"destination":"B Place",
+		"date":"2023-03-30 20:00:00",
+		"seat_counts":4,
+		"available_seats":3,
+		"price":20.5,
+		"contact_info":"18123430303"
+	}`
+
+	req, err := http.NewRequest("POST", "/api/trips", strings.NewReader(data))
+	if err != nil {
+		t.Fatalf("new request fail, err: %v", err)
+	}
+
+	rec := httptest.NewRecorder()
+
+	g.ServeHTTP(rec, req)
+
+	result := rec.Result()
+	t.Logf("response code: %v", result.StatusCode)
+	t.Logf("response str: %s ", rec.Body.String())
+
+	trip_id = gjson.Get(rec.Body.String(), "trip_id").Int()
+
+	if result.StatusCode != 200 {
+		t.Fatalf("resp code error.")
+	}
+
+}
+
+func TestTripFailCreate(t *testing.T) {
+	g := gin.Default()
+	router.InitRouter(g)
+	data := `{
+		"driver_id":0,
+		"start":"A place",
+		"destination":"B Place",
+		"date":"2023-03-30 20:00:00",
+		"seat_counts":4,
+		"available_seats":3,
+		"price":20.5,
+		"contact_info":"18123430303"
+	}`
+
+	req, err := http.NewRequest("POST", "/api/trips", strings.NewReader(data))
+	if err != nil {
+		t.Fatalf("new request fail, err: %v", err)
+	}
+
+	rec := httptest.NewRecorder()
+
+	g.ServeHTTP(rec, req)
+
+	result := rec.Result()
+	t.Logf("response code: %v", result.StatusCode)
+	t.Logf("response str: %s ", rec.Body.String())
+
+	if !strings.Contains(rec.Body.String(), "参数有误") {
+		t.Fatalf("response not expected")
+	}
+
+}
+
+func TestTripQuery(t *testing.T) {
+	g := gin.Default()
+	router.InitRouter(g)
+	data := `{
+		"start":"A place",
+		"destination":"B Place",
+		"date":"2023-03-30 20:00:00",
+		"available_seats":3
+	}`
+
+	req, err := http.NewRequest("GET", "/api/trips", strings.NewReader(data))
+	if err != nil {
+		t.Fatalf("new request fail, err: %v", err)
+	}
+
+	rec := httptest.NewRecorder()
+
+	g.ServeHTTP(rec, req)
+
+	result := rec.Result()
+	t.Logf("response code: %v", result.StatusCode)
+	t.Logf("response str: %s ", rec.Body.String())
+
+	if result.StatusCode != 200 {
+		t.Fatalf("resp code error.")
+	}
+
+}
+
+func TestTripFailQuery(t *testing.T) {
+	g := gin.Default()
+	router.InitRouter(g)
+	data := `{
+		"start":"",
+		"destination":"B Place",
+		"date":"2023-03-30 20:00:00",
+		"available_seats":3
+	}`
+
+	req, err := http.NewRequest("GET", "/api/trips", strings.NewReader(data))
+	if err != nil {
+		t.Fatalf("new request fail, err: %v", err)
+	}
+
+	rec := httptest.NewRecorder()
+
+	g.ServeHTTP(rec, req)
+
+	result := rec.Result()
+	t.Logf("response code: %v", result.StatusCode)
+	t.Logf("response str: %s ", rec.Body.String())
+
+	if !strings.Contains(rec.Body.String(), "参数有误") {
+		t.Fatalf("response not expected")
+	}
+
+}
+
+func TestTripJoin(t *testing.T) {
+	g := gin.Default()
+	router.InitRouter(g)
+	data := `{
+		"userid":"456",
+		"seats":2
+	}`
+
+	url := fmt.Sprintf("/api/trips/%v/join", trip_id)
+	req, err := http.NewRequest("POST", url, strings.NewReader(data))
+	if err != nil {
+		t.Fatalf("new request fail, err: %v", err)
+	}
+
+	rec := httptest.NewRecorder()
+
+	g.ServeHTTP(rec, req)
+
+	result := rec.Result()
+	t.Logf("response code: %v", result.StatusCode)
+	t.Logf("response str: %s ", rec.Body.String())
+
+	if result.StatusCode != 200 {
+		t.Fatalf("resp code error.")
+	}
+
+}
+
+func TestTripCancel(t *testing.T) {
+	g := gin.Default()
+	router.InitRouter(g)
+	data := `{
+		"userid":"456",
+		"seats":2
+	}`
+
+	url := fmt.Sprintf("/api/trips/%v/cancel", trip_id)
+	req, err := http.NewRequest("POST", url, strings.NewReader(data))
+	if err != nil {
+		t.Fatalf("new request fail, err: %v", err)
+	}
+
+	rec := httptest.NewRecorder()
+
+	g.ServeHTTP(rec, req)
+
+	result := rec.Result()
+	t.Logf("response code: %v", result.StatusCode)
+	t.Logf("response str: %s ", rec.Body.String())
+
+	if result.StatusCode != 200 {
+		t.Fatalf("resp code error.")
+	}
+
+}
+
+func TestTripFailCancel(t *testing.T) {
+	g := gin.Default()
+	router.InitRouter(g)
+	data := `{
+		"userid":"456",
+		"seats":2
+	}`
+
+	url := fmt.Sprintf("/api/trips/%v/cancel", trip_id)
+	req, err := http.NewRequest("POST", url, strings.NewReader(data))
+	if err != nil {
+		t.Fatalf("new request fail, err: %v", err)
+	}
+
+	rec := httptest.NewRecorder()
+
+	g.ServeHTTP(rec, req)
+
+	result := rec.Result()
+	t.Logf("response code: %v", result.StatusCode)
+	t.Logf("response str: %s ", rec.Body.String())
+
+	if !strings.Contains(rec.Body.String(), "操作失败") {
+		t.Fatalf("response not expected")
+	}
+
+}
+
+func TestTripConfirm(t *testing.T) {
+	g := gin.Default()
+	router.InitRouter(g)
+	data := `{
+		"user_id":"f68f7efabd2946dcb368b1bd06c6ee8c",
+		"rating":5
+	}`
+
+	url := fmt.Sprintf("/api/trips/%v/confirm", trip_id)
+	req, err := http.NewRequest("POST", url, strings.NewReader(data))
+	if err != nil {
+		t.Fatalf("new request fail, err: %v", err)
+	}
+
+	rec := httptest.NewRecorder()
+
+	g.ServeHTTP(rec, req)
+
+	result := rec.Result()
+	t.Logf("response code: %v", result.StatusCode)
+	t.Logf("response str: %s ", rec.Body.String())
+
+	if result.StatusCode != 200 {
+		t.Fatalf("resp code error.")
+	}
+
+}
+
+func TestTripFailConfirm(t *testing.T) {
+	g := gin.Default()
+	router.InitRouter(g)
+	data := `{
+		"user_id":"f68f7efabd2946dcb368b1bd06c6ee8c",
+		"rating":5
+	}`
+
+	url := fmt.Sprintf("/api/trips/%v/confirm", trip_id)
+	req, err := http.NewRequest("POST", url, strings.NewReader(data))
+	if err != nil {
+		t.Fatalf("new request fail, err: %v", err)
+	}
+
+	rec := httptest.NewRecorder()
+
+	g.ServeHTTP(rec, req)
+
+	result := rec.Result()
+	t.Logf("response code: %v", result.StatusCode)
+	t.Logf("response str: %s ", rec.Body.String())
+
+	if !strings.Contains(rec.Body.String(), "操作失败") {
+		t.Fatalf("response not expected")
+	}
+
+}
+
+
