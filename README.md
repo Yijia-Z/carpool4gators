@@ -47,6 +47,38 @@ We welcome contributions from other developers who are interested in improving t
 - Create a pull request with a detailed description of your changes and link it to the corresponding issue if any.
 - Wait for feedback from the maintainers and address any comments or requests.
 
+## Backend
+
+- `cmd`: This folder stores the main commands of the application.
+- `common`: This folder usually contains some common functions or tools that can be used by other files in the project.
+- `conf` or `config`: This folder is where configuration files are stored. It usually contains project configuration information such as database connection strings, API keys, etc.
+- `consts`: This folder contains constants used throughout the project.
+- `database`: This folder stores code that interacts with the database.
+- `model`: This folder stores data models such as structures.
+- `query`: This folder stores query statements that interact with the database.
+- `router`: This folder stores route handlers that map requests to specific handlers.
+- `service`: This folder stores business logic code.
+- `util`: This folder stores helper functions such as formatting functions.
+
+The file `build.sh` is used to automate the project's build process. It can perform tasks such as compiling, packaging, testing, etc.
+
+The file `main.go` is an entry point for a Go program. It contains the main logic of the project and is responsible for starting the program, performing initialization and handling HTTP requests.
+
+To run this backend:
+1. Download Goland and install it
+2. Download MySQL and install it (remember password), then configure environment variables
+3. Open backend project in Goland, execute "go mod tidy" command in terminal
+4. Write your MySQL password into "config_release.yaml" file (change password line to your MySQL password)
+5. Login to MySQL in command line, create a database named "car", execute SQL file
+6. Click on green triangle to run program
+
+To test this backend using Postman:
+1. Download Postman
+2. Select post request, fill in path (e.g., localhost:18080/user/update_user), send JSON for testing (to know how to write JSON, see input parameters of API you want to test)
+3. Download Navicat which can help visualize databases so that testing results can be more convenient to read
+
+
+
 ## License
 
 This project is licensed under the GNU General Public License v3.0. See LICENSE file for more details.
