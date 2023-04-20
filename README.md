@@ -1,6 +1,6 @@
 # Carpoo4gator
 
-Carpoo4gator is a trip management system available only to UF students that connects drivers and passengers who want to share rides. It allows users to search for trips based on departure location, destination, time, and available seats. It also allows drivers to create trips with their contact information and receive feedback and ratings from passengers.
+Carpoo4gator is a trip management system available to UF students that connects drivers and passengers who want to share rides. It allows users to search for trips based on departure location, destination, time, and available seats. It also allows drivers to create trips with their contact information and receive feedback and ratings from passengers.
 
 Both drivers and riders can register an account for this app. To start a carpool in this web app, drivers need to fill in where they are from and where they are going, as well as the available time. Riders can see a list of available drivers after choosing their starting point, destination and time. 
 
@@ -12,7 +12,7 @@ To install and run this project, you will need to have Node.js and MySQL install
 git clone https://github.com/Yijia-Z/carpoo4gator.git
 ```
 
-Then, navigate to the project directory and install the dependencies in /frontend using:
+Then, navigate to the project directory <.../carpool4gators/frontend/> and install the dependencies in /frontend using:
 
 ```
 npm install
