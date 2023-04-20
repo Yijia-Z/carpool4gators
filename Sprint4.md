@@ -347,15 +347,22 @@ TestGetDriverApi()
 TestGetDriverApi1()
 TestGetDriverRatingsApi()
 TestGetDriverRatingsApi1()
+TestTripCreate()
+TestTripFailCreate()
+TestTripQuery()
+TestTripFailQuery()
+TestTripJoin()
+TestTripCancel()
+TestTripFailCancel()
+TestTripConfirm()
+TestTripFailConfirm()
 ```
 
 #### New Functionality
-We implemented some new functionalities and wrote unit tests for them.
-1. Driver registration and login feature: Drivers can register a new account or login with an existing account.
-2. Driver information management: Drivers can manage their personal information, rating, and current trips.
-3. Trip management: Users can search for trips based on the departure location, destination, time, and available seats. Drivers can create trips with departure location, destination, time, available seats, and contact information. Once matched, users can request to join a driver's trip.
-4. Rating feature: Users can confirm trips and provide feedback and ratings for drivers.
+We added new features to our trip management system and created unit tests for them. The new functionalities include:
 
+1. Trip management: Users can search for trips based on departure location, destination, time, and available seats. Drivers can create trips with departure location, destination, time, available seats, and contact information. Once matched, users can request to join a driver’s trip.
+2. Rating feature: Users can confirm trips and provide feedback and ratings for drivers.
 
 
 
