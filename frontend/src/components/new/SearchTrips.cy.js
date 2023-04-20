@@ -29,7 +29,7 @@ describe('SearchTrips Component', () => {
             expect(request.url).to.contain('start=StartCity');
             expect(request.url).to.contain('destination=DestinationCity');
             expect(request.url).to.contain('date=2023-04-15');
-            expect(request.url).to.contain('seat_count=2');
+            expect(request.url).to.contain('seat_count=12');
             expect(response.statusCode).to.equal(200);
         });
 
